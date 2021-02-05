@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Frontend Mentor | Pomodoro app</title>
+  </head>
+
+  <body class="font-kumbh">
+    <div class="timer-div">
+      <h1 class="main-heading">pomodoro</h1>
+      <div class="buttons-timer-container">
+        <button id="mode-pomodoro" class="mode-button mode-active">
+          pomodoro
+        </button>
+        <button id="mode-shortbreak" class="mode-button">short break</button>
+        <button id="mode-longbreak" class="mode-button">long break</button>
+      </div>
+      <canvas id="timer-canvas" width='339' height='339'>
+      </canvas>
+      <div class="timer-outer-border">
+        <div class="timer-inner-border">
+          <div class="timer">
+            <div class="timer-display">
+              <div class="timer-minutes">20</div><div>:</div><div class="timer-seconds"
+                >00</div>
+            </div>
+            <button class="timer-control">START</button>
+          </div>
+        </div>
+        
+      </div>
+        
+      
+
+      <button class="button-open-settings">
+        <img src="assets/icon-settings.svg" alt="" />
+      </button>
+    </div>
+
+    <div class="settings-overlay-backing">
+      <div class="settings-overlay">
+        <div class="settings-heading">
+          <h2>Settings</h2>
+          <button class="button-close-settings modal-button modal-svg">
+            <img id="jq-button-close" src="assets/icon-close.svg" alt="" />
+          </button>
+        </div>
+        <div class="settings-time">
+          <h3>TIME (MINUTES)</h3>
+          <div class="settings-time--buttons">
+            <div class="setting-time">
+              <h4>pomodoro</h3>
+              <div class="settings-buttons-time">
+                <p id="jq-pomodoro-minutes">20</p>
+                <div class="button-container">
+                  <button id="jq-pomodoro-up" class="modal-button modal-svg">
+                    <img src="assets/icon-arrow-up.svg" alt="" />
+                  </button>
+                  <button id="jq-pomodoro-down" class="modal-button modal-svg">
+                    <img src="assets/icon-arrow-down.svg" alt="" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="setting-time">
+              <h4>short break</h3>
+              <div class="settings-buttons-time">
+                <p id="jq-shortbreak-minutes">5</p>
+                <div class="button-container">
+                  <button id="jq-shortbreak-up" class="modal-button modal-svg">
+                    <img src="assets/icon-arrow-up.svg" alt="" />
+                  </button>
+                  <button id="jq-shortbreak-down" class="modal-button modal-svg">
+                    <img src="assets/icon-arrow-down.svg" alt="" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="setting-time">
+              <h4>long break</h3>
+              <div class="settings-buttons-time">
+                <p id="jq-longbreak-minutes">15</p>
+                <div class="button-container">
+                  <button id="jq-longbreak-up" class="modal-button modal-svg">
+                    <img src="assets/icon-arrow-up.svg" alt="" />
+                  </button>
+                  <button id="jq-longbreak-down" class="modal-button modal-svg">
+                    <img src="assets/icon-arrow-down.svg" alt="" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-font">
+          <h3>FONT</h3>
+          <div class="settings-buttons-font">
+            <div class="button-selector-wrapper">
+              <button
+                class="modal-button button-kumbh button-selection button-font-selected"
+              >
+                Aa
+              </button>
+            </div>
+            <div class="button-selector-wrapper">
+              <button
+                class="modal-button button-roboto button-selection button-font"
+              >
+                Aa
+              </button>
+            </div>
+            <div class="button-selector-wrapper">
+              <button
+                class="modal-button button-space button-selection button-font"
+              >
+                Aa
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="settings-color">
+          <h3>COLOR</h3>
+          <div class="settings-buttons-color">
+            <div class="button-selector-wrapper">
+              <button class="color-red modal-button button-selection">
+                <img src="assets/checkmark.svg" alt="" />
+              </button>
+            </div>
+            <div class="button-selector-wrapper">
+              <button class="color-cyan modal-button button-selection"></button>
+            </div>
+            <div class="button-selector-wrapper">
+              <button class="color-pink modal-button button-selection"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="button-apply-wrapper">
+        <button class="button-apply">Apply</button>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="pomodoro.js"></script>
+  </body>
+</html>
