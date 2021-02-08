@@ -183,7 +183,7 @@ body {
 
 .settings-overlay-backing {
   position: fixed;
-  z-index: 1;
+  z-index: 3;
   top: 0;
   left: 0;
   width: 100%;
@@ -205,6 +205,8 @@ body {
 }
 
 .settings-overlay {
+  position: relative;
+  z-index: 4;
   color: black;
   background-color: white;
   border-radius: 25px;
@@ -299,6 +301,11 @@ h4 {
   font-size: 15px;
 }
 
+.button-selection:focus {
+  border: transparent;
+  outline: transparent;
+}
+
 .button-kumbh {
   font-family: "Kumbh Sans", sans-serif;
 }
@@ -314,13 +321,13 @@ h4 {
 .button-font {
   color: hsl(235, 35%, 18%);
   background-color: hsl(227, 52%, 96%);
-
   opacity: 0.73;
 }
 
 .button-font-selected {
   color: white;
   background-color: hsl(234, 39%, 14%);
+  opacity: 1;
 }
 
 .settings-font,
@@ -340,15 +347,15 @@ h4 {
   width: 160px;
 }
 
-.color-red {
+.button-red {
   background-color: hsl(0, 91%, 71%);
 }
 
-.color-cyan {
+.button-cyan {
   background-color: hsl(182, 91%, 71%);
 }
 
-.color-pink {
+.button-pink {
   background-color: hsl(284, 89%, 74%);
 }
 
@@ -359,6 +366,7 @@ h4 {
   border: none;
   background-color: hsl(0, 91%, 71%);
   position: relative;
+  z-index: 5;
   bottom: 50%;
   width: 140px;
   height: 53px;

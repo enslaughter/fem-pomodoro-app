@@ -10,16 +10,36 @@ let modeTime = timePomodoro;
 let running = false;
 let finishedCycle = false;
 
-let activeFont = "kumbh";
-let activeColor = "red";
+let activeFont = "font-kumbh";
+let activeColor = "#F87070";
+
+const colorRed = "#F87070";
+const colorCyan = "#70F3F8";
+const colorPink = "#D881F8";
 
 let currentMode = "pomodoro";
+
+let currentSettings = {
+    tPomodoro: 20,
+    tSB: 5,
+    tLB: 15,
+    fontType: "font-kumbh",
+    colorType: activeColor
+}
+
+let settingsMarshall = {
+    tPomodoro: 20,
+    tSB: 5,
+    tLB: 15,
+    fontType: "font-kumbh",
+    colorType: activeColor
+}
 
 //Section for handling the canvas timer
 
 function drawArc(){
     let timerCanvas = document.getElementById("timer-canvas").getContext("2d");
-    timerCanvas.strokeStyle = "#F87070";
+    timerCanvas.strokeStyle = currentSettings.colorType;
     timerCanvas.lineWidth = 10;
     timerCanvas.lineCap = "round";
     timerCanvas.clearRect(0,0,340, 340);
@@ -30,28 +50,32 @@ function drawArc(){
 
 drawArc();
 
-let currentSettings = {
-    tPomodoro: 20,
-    tSB: 5,
-    tLB: 15,
-    fontType: "kumbh",
-    colorType: "red"
-}
 
-let settingsMarshall = {
-    tPomodoro: 20,
-    tSB: 5,
-    tLB: 15,
-    fontType: "kumbh",
-    colorType: "red"
-}
 
 function applyFont(fontClass){
+    switch(fontClass){
+        case "font-kumbh":
+            $('body').css("font-family", "Kumbh Sans");
+            break;
+        case "font-roboto":
+            $('body').css("font-family", "Roboto Slab");
+            break;
+        case "font-space":
+            $('body').css("font-family", "Space Mono");
+            break;
+        default:
+            break;
+    }
+
+    $('button').removeClass("font-kumbh");
+    $('button').removeClass("font-roboto");
+    $('button').removeClass("font-space");
+
     $('button').addClass(fontClass);
 }
 
 function applyColor(colorClass){
-    $('button').addClass(colorClass);
+    $('.mode-active').css("background-color", colorClass);
 }
 
 function changeSettings(){
@@ -95,39 +119,50 @@ function changeMode(mode){
     $(".timer-control").text("START");
 }
 
+//I would like to sincerely apologize for the following spaghetti code
+
 $("#mode-pomodoro").click(function(){
-    if (!$("#mode-pomodoro").is("disabled")){
+    if (!$(this).is("disabled")){
         changeMode("pomodoro");
-        $("#mode-pomodoro").addClass("mode-active");
-        $("#mode-pomodoro").prop("disabled", true);
+        $(this).addClass("mode-active");
+        $(this).prop("disabled", true);
+        $(this).css("background-color", currentSettings.colorType);
         $("#mode-longbreak").prop("disabled", false);
         $("#mode-shortbreak").prop("disabled", false);
         $("#mode-longbreak").removeClass("mode-active");
         $("#mode-shortbreak").removeClass("mode-active");
+        $("#mode-longbreak").css("background-color", "transparent");
+        $("#mode-shortbreak").css("background-color", "transparent");
     }
 })
 
 $("#mode-longbreak").click(function(){
-    if (!$("#mode-longbreak").is("disabled")){
+    if (!$(this).is("disabled")){
         changeMode("longbreak");
-        $("#mode-longbreak").addClass("mode-active");
+        $(this).addClass("mode-active");
         $("#mode-pomodoro").prop("disabled", false);
-        $("#mode-longbreak").prop("disabled", true);
+        $(this).prop("disabled", true);
+        $(this).css("background-color", currentSettings.colorType);
         $("#mode-shortbreak").prop("disabled", false);
         $("#mode-pomodoro").removeClass("mode-active");
         $("#mode-shortbreak").removeClass("mode-active");
+        $("#mode-pomodoro").css("background-color", "transparent");
+        $("#mode-shortbreak").css("background-color", "transparent");
     }
 })
 
 $("#mode-shortbreak").click(function(){
-    if (!$("#mode-shortbreak").is("disabled")){
+    if (!$(this).is("disabled")){
         changeMode("shortbreak");
-        $("#mode-shortbreak").addClass("mode-active");
+        $(this).addClass("mode-active");
         $("#mode-pomodoro").prop("disabled", false);
         $("#mode-longbreak").prop("disabled", false);
-        $("#mode-shortbreak").prop("disabled", true);
+        $(this).prop("disabled", true);
+        $(this).css("background-color", currentSettings.colorType);
         $("#mode-longbreak").removeClass("mode-active");
         $("#mode-pomodoro").removeClass("mode-active");
+        $("#mode-longbreak").css("background-color", "transparent");
+        $("#mode-pomodoro").css("background-color", "transparent");
     }
 })
 
@@ -180,7 +215,42 @@ $(".button-open-settings").click(function(){
 })
 
 $(".button-close-settings").click(function(){
-    settingsMarshall = currentSettings;
+    settingsMarshall = {...currentSettings};
+    $(".button-font").removeClass("button-font-selected");
+    $(".button-color").html("");
+
+    switch(currentSettings.fontType){
+        case "font-kumbh":
+            $(".button-kumbh").addClass("button-font-selected");
+            break;
+        case "font-roboto":
+            $(".button-roboto").addClass("button-font-selected");
+            break;
+        case "font-space":
+            $(".button-space").addClass("button-font-selected");
+            break;
+        default:
+            break;
+    }
+
+    switch(currentSettings.colorType){
+        case colorRed:
+            $(".button-red").html("<img src='assets/checkmark.svg' alt='' />");
+            break;
+        case colorCyan:
+            $(".button-cyan").html("<img src='assets/checkmark.svg' alt='' />");
+            break;
+        case colorPink:
+            $(".button-pink").html("<img src='assets/checkmark.svg' alt='' />");
+            break;
+        default:
+            break;
+    }
+
+    $("#jq-pomodoro-minutes").text(currentSettings.tPomodoro);
+    $("#jq-shortbreak-minutes").text(currentSettings.tSB);
+    $("#jq-longbreak-minutes").text(currentSettings.tLB);
+
     $(".settings-overlay-backing").removeClass("modal-active");
 })
 
@@ -260,15 +330,53 @@ $("#jq-longbreak-down").click(function(){
     $("#jq-longbreak-minutes").text(settingsMarshall.tLB);
 })
 
+//SETTINGS FOR FONTS
+
+$(".button-kumbh").click(function(){
+    $(".button-font").removeClass("button-font-selected");
+    $(this).addClass("button-font-selected");
+    settingsMarshall.fontType = "font-kumbh";
+})
+
+$(".button-roboto").click(function(){
+    $(".button-font").removeClass("button-font-selected");
+    $(this).addClass("button-font-selected");
+    settingsMarshall.fontType = "font-roboto";
+})
+
+$(".button-space").click(function(){
+    $(".button-font").removeClass("button-font-selected");
+    $(this).addClass("button-font-selected");
+    settingsMarshall.fontType = "font-space";
+})
+
+//SETTINGS FOR COLORS
+
+$(".button-red").click(function(){
+    $(".button-color").html("");
+    $(this).html("<img src='assets/checkmark.svg' alt='' />")
+    settingsMarshall.colorType = colorRed;
+})
+
+$(".button-cyan").click(function(){
+    $(".button-color").html("");
+    $(this).html("<img src='assets/checkmark.svg' alt='' />")
+    settingsMarshall.colorType = colorCyan;
+})
+
+$(".button-pink").click(function(){
+    $(".button-color").html("");
+    $(this).html("<img src='assets/checkmark.svg' alt='' />")
+    settingsMarshall.colorType = colorPink;
+})
 
 //Submit the settings data to the rest of the app
 $(".button-apply").click(function(){
-    //console.log("Applying marshall with settings; " + settingsMarshall.tPomodoro);
     //Apply the settings
     timePomodoro = settingsMarshall.tPomodoro*60;
     timeSB = settingsMarshall.tSB*60;
     timeLB = settingsMarshall.tLB*60;
-    currentSettings = settingsMarshall;
+    currentSettings = {...settingsMarshall};
 
     switch (currentMode){
         case("pomodoro"):
@@ -283,8 +391,14 @@ $(".button-apply").click(function(){
         default:
             console.log("Error applying Marshall settings to main settings");
     }
-    
-    //console.log("Mode is " + currentMode + " and current mode time is; " + modeTime/60);
+
+    //Set the font
+
+    applyFont(settingsMarshall.fontType);
+
+    //Set the new color
+
+    applyColor(settingsMarshall.colorType);
 
     //Reset the timer
     timeLeft = modeTime;
