@@ -19,6 +19,8 @@ const colorPink = "#D881F8";
 
 let currentMode = "pomodoro";
 
+var soundFinished = new Audio("assets/finished.mp3");
+
 let currentSettings = {
     tPomodoro: 20,
     tSB: 5,
@@ -190,6 +192,7 @@ $(".timer-control").click(function(){
                 if(timeLeft<=0){
                     finishedCycle = true;
                     running = false;
+                    soundFinished.play();
                     $(".timer-control").text("RESTART");
                     clearInterval(pomodoro);
                 }
