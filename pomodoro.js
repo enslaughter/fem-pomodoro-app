@@ -404,6 +404,8 @@ $(".button-apply").click(function(){
     timeLeft = modeTime;
     setTime(timeLeft);
     finishedCycle = false;
+    running = false;
+    clearInterval(pomodoro);
     $(".timer-control").text("START");
 
     //Close the modal
