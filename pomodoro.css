@@ -1,0 +1,442 @@
+/* TOP LEVEL SECTION */
+/* line 3, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+body {
+  color: #d6e0ff;
+  background-color: #1d203e;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 10, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.button {
+  font-family: inherit;
+}
+
+/* FONT FAMILY SECTION */
+/* line 15, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.font-kumbh {
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+/* line 19, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.font-roboto {
+  font-family: "Roboto Slab", sans-serif;
+}
+
+/* line 23, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.font-space {
+  font-family: "Space Mono", sans-serif;
+}
+
+/* MAIN TIMER SECTION */
+/* line 29, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+#timer-canvas {
+  position: absolute;
+  top: 283px;
+}
+
+/* line 34, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.timer {
+  width: 317px;
+  height: 317px;
+  border-radius: 160px;
+}
+
+/* line 40, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.timer-outer-border {
+  width: 410px;
+  height: 410px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 45px;
+  border-radius: 50%;
+  background-image: linear-gradient(315deg, #2e325a 0%, #0e112a 100%);
+  box-shadow: -50px -50px 100px #272c5a, 50px 50px 100px #121530;
+}
+
+/* line 53, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.timer-inner-border {
+  width: 366px;
+  height: 366px;
+  background-color: #161932;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 64, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.timer-div {
+  width: inherit;
+  height: inherit;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* line 73, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.timer-display {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 82, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.main-heading {
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: 700;
+  margin: 0 0 55px 0;
+}
+
+/* line 89, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.buttons-timer-container {
+  position: relative;
+  z-index: 2;
+  background-color: #161932;
+  border-radius: 50px;
+  padding: 10px;
+}
+
+/* line 97, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.mode-button {
+  background-color: transparent;
+  border-color: transparent;
+  outline-color: transparent;
+  color: #d6e0ff;
+  font-weight: 700;
+  font-size: 14px;
+  height: 48px;
+  width: 120px;
+  border-radius: 27px;
+  opacity: 40%;
+}
+
+/* line 110, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.mode-button:hover {
+  color: #d6e0ff;
+  cursor: pointer;
+  opacity: 100%;
+}
+
+/* line 116, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.mode-button:focus {
+  border: none;
+  outline: none;
+}
+
+/* line 121, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.mode-active {
+  color: #1e213e;
+  background-color: #f87272;
+  opacity: 100%;
+}
+
+/* line 127, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.mode-active:hover {
+  color: #1e213e;
+  cursor: default;
+}
+
+/* line 132, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* line 138, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.timer-display {
+  font-size: 100px;
+  font-weight: 700;
+  letter-spacing: -5px;
+}
+
+/* line 144, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.timer-minutes {
+  width: 120px;
+  text-align: right;
+}
+
+/* line 149, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.timer-seconds {
+  width: 120px;
+  text-align: left;
+}
+
+/* line 154, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.timer-control {
+  position: absolute;
+  top: 514px;
+  background-color: transparent;
+  border: none;
+  color: #d6e0ff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* line 164, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.timer-control:focus {
+  outline: none;
+  outline-color: transparent;
+}
+
+/* line 169, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.timer-control:hover {
+  cursor: pointer;
+}
+
+/* SETTINGS MODAL SECTION */
+/* line 174, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.button-open-settings {
+  background-color: transparent;
+  border-color: transparent;
+  outline: none;
+}
+
+/* line 180, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.button-open-settings:hover {
+  cursor: pointer;
+}
+
+/* line 184, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.settings-overlay-backing {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0b0d1e;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 198, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.modal-button {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+/* line 203, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.modal-button:hover {
+  cursor: pointer;
+}
+
+/* line 207, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.settings-overlay {
+  position: relative;
+  z-index: 4;
+  color: black;
+  background-color: white;
+  border-radius: 25px;
+  width: 540px;
+  height: 490px;
+  padding: 34px 40px;
+}
+
+/* line 218, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+h2 {
+  margin: 0;
+  margin-bottom: 31px;
+  font-size: 28px;
+}
+
+/* line 224, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+h3 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  margin: 28px 0 22px 0;
+}
+
+/* line 231, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+h4 {
+  font-size: 12px;
+  font-weight: 700;
+  opacity: 50px;
+  margin: 0 0 8px 0;
+  opacity: 40%;
+}
+
+/* line 239, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.settings-heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e4e2e2;
+  box-sizing: border-box;
+}
+
+/* line 248, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.button-open-settings {
+  margin-top: 100px;
+}
+
+/* line 251, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.button-close-settings {
+  position: relative;
+  bottom: 10px;
+}
+
+/* line 256, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.maskable-svg:hover path {
+  opacity: 100%;
+  stroke-opacity: 100%;
+}
+
+/* line 261, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.settings-time--buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 20px;
+}
+
+/* line 268, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.settings-buttons-time {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* line 275, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* line 281, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.button-selector-wrapper {
+  border: 1px solid transparent;
+  border-radius: 25px;
+  box-sizing: border-box;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 292, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.button-selector-wrapper:hover {
+  border-color: #eff1fa;
+}
+
+/* line 296, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.button-selection {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* line 304, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.button-selection:focus {
+  border: transparent;
+  outline: transparent;
+}
+
+/* line 309, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.button-kumbh {
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+/* line 313, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.button-roboto {
+  font-family: "Roboto Slab", sans-serif;
+}
+
+/* line 317, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.button-space {
+  font-family: "Space Mono", sans-serif;
+}
+
+/* line 321, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.button-font {
+  color: #1e213e;
+  background-color: #eff2fa;
+  opacity: 0.73;
+}
+
+/* line 327, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.button-font-selected {
+  color: white;
+  background-color: #161932;
+  opacity: 1;
+}
+
+/* line 333, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.settings-font,
+.settings-color {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* line 341, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.settings-buttons-color,
+.settings-buttons-font {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 160px;
+}
+
+/* line 350, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.button-red {
+  background-color: #f87272;
+}
+
+/* line 354, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.button-cyan {
+  background-color: #72f4f8;
+}
+
+/* line 358, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.button-pink {
+  background-color: #d882f8;
+}
+
+/* line 362, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.button-apply {
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  background-color: #f87272;
+  position: relative;
+  z-index: 5;
+  bottom: 50%;
+  width: 140px;
+  height: 53px;
+  border-radius: 27px;
+}
+
+/* line 376, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.button-apply:hover {
+  cursor: pointer;
+  background-color: #fa9e9e;
+}
+
+/* line 381, ../Front End Mentor Gitver/Pomodoro App Fixed/sass_in/pomodoro.scss */
+.modal-active {
+  display: flex;
+}
+
+/*# sourceMappingURL=pomodoro.css.map */

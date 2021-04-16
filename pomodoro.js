@@ -21,6 +21,37 @@ let currentMode = "pomodoro";
 
 var soundFinished = new Audio("assets/finished.mp3");
 
+let currentWindowWidth = window.innerWidth;
+let timerCanvas = document.getElementById("timer-canvas").getContext("2d");
+
+$(document).ready( () => {
+    if (window.innerWidth > 630) {
+        timerCanvas.canvas.height = 339
+        timerCanvas.canvas.width = 339
+    }
+    else {
+        timerCanvas.canvas.height = 248
+        timerCanvas.canvas.width = 248
+    }
+
+    drawArc();
+})
+//Fallback event listener just in case the user resizes the window below a breakpoint. 
+//This is important because the canvas drawing functionality is reliant on the window's width
+$(window).on('resize', function(){
+    var win = $(this);
+    currentWindowWidth = win.width();
+    if (currentWindowWidth > 630){
+        timerCanvas.canvas.height = 339
+        timerCanvas.canvas.width = 339
+    } else {
+        timerCanvas.canvas.height = 248
+        timerCanvas.canvas.width = 248
+    }
+
+    drawArc();
+})
+
 let currentSettings = {
     tPomodoro: 20,
     tSB: 5,
@@ -40,14 +71,22 @@ let settingsMarshall = {
 //Section for handling the canvas timer
 
 function drawArc(){
-    let timerCanvas = document.getElementById("timer-canvas").getContext("2d");
-    timerCanvas.strokeStyle = currentSettings.colorType;
-    timerCanvas.lineWidth = 10;
-    timerCanvas.lineCap = "round";
-    timerCanvas.clearRect(0,0,340, 340);
-    timerCanvas.beginPath();
-    timerCanvas.arc(170,170,160,Math.PI*1.5,Math.PI*(-0.5 + 1.999999*(timeLeft/modeTime)),false);
-    timerCanvas.stroke();
+        timerCanvas.strokeStyle = currentSettings.colorType;
+        timerCanvas.lineWidth = 10;
+        timerCanvas.lineCap = "round";
+    if (currentWindowWidth > 630) {
+        timerCanvas.clearRect(0,0,340, 340);
+        timerCanvas.beginPath();
+        timerCanvas.arc(170,170,160,Math.PI*1.5,Math.PI*(-0.5 + 1.999999*(timeLeft/modeTime)),false);
+        timerCanvas.stroke();
+    } else {
+        timerCanvas.lineCap = "round";
+        timerCanvas.clearRect(0,0,248, 248);
+        timerCanvas.beginPath();
+        timerCanvas.arc(124,124,114,Math.PI*1.5,Math.PI*(-0.5 + 1.999999*(timeLeft/modeTime)),false);
+        timerCanvas.stroke();
+    }
+    
 }
 
 drawArc();
